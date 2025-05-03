@@ -1,0 +1,1 @@
+{"Version":3,"Meta":{"Duration":2.5,"Loop":true,"AreBeziersRestricted":false},"Curves":[{"Target":"Parameter","Id":"ParamAngleX","Segments":[0,0,2.5,10]},{"Target":"Parameter","Id":"ParamAngleY","Segments":[0,0,2.5,-10]},{"Target":"Parameter","Id":"ParamMouthOpenY","Segments":[0,0.2,1.25,0.6,2.5,0.2]}]}
