@@ -1,1 +1,0 @@
-This is a placeholder file explaining how to use the Live2D test package.
