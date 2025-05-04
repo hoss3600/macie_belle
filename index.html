@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Live2D Sample Assistant</title>
+  <title>Live2D Assistant - Interactive</title>
   <script src="https://unpkg.com/pixi.js/dist/pixi.min.js"></script>
   <script src="https://unpkg.com/live2d-widget@3.0.4/lib/L2Dwidget.min.js"></script>
 </head>
@@ -15,16 +15,23 @@
       },
       display: {
         position: "right",
-        width: 280,
-        height: 520
+        width: 300,
+        height: 500,
       },
       mobile: {
         show: true,
-        scale: 0.5
+        scale: 0.6
       },
       react: {
         opacityDefault: 1,
-        opacityOnHover: 0.7
+        opacityOnHover: 0.9
+      },
+      dialog: {
+        enable: true,
+        script: {
+          "every idle 10s": "مرحباً! هل يمكنني مساعدتك؟",
+          "tap body": "أوه! انتبه! 😄"
+        }
       }
     });
   </script>
