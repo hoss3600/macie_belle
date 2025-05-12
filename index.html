@@ -1,26 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
   <meta charset="UTF-8">
   <title>Macie Belle Assistant</title>
-  <script src="https://unpkg.com/pixi.js/dist/pixi.min.js"></script>
-  <script src="https://unpkg.com/live2d-widget@3.0.4/lib/L2Dwidget.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      background: #fdfdfd;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .assistant {
+      position: fixed;
+      bottom: 0;
+      right: 20px;
+      width: 250px;
+      animation: float 3s ease-in-out infinite, fadeIn 1s forwards;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
 </head>
 <body>
-  <script>
-    L2Dwidget.init({
-      model: { jsonPath: "assistant/model3.json" },
-      display: { position: "right", width: 300, height: 500 },
-      mobile: { show: true, scale: 0.6 },
-      react: { opacityDefault: 1, opacityOnHover: 0.9 },
-      dialog: {
-        enable: true,
-        script: {
-          "every idle 10s": "مرحباً! كيف يمكنني مساعدتك؟",
-          "tap body": "ها أنت ضغطت عليّ! 😊"
-        }
-      }
-    });
-  </script>
+  <img src="assistant/textures/texture_00.png" alt="Assistant" class="assistant">
 </body>
 </html>
