@@ -2,7 +2,7 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>Macie Belle Assistant</title>
+  <title>Macie Belle Assistant - Auto Detect</title>
   <style>
     body { margin: 0; background: #f9f9f9; height: 100vh; overflow: hidden; }
     .assistant {
@@ -26,6 +26,7 @@
       margin: 5px;
       padding: 10px 15px;
       font-size: 14px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -33,24 +34,35 @@
 
 <img id="assistant-img" src="assistant/textures/neutral.png" class="assistant" alt="Assistant">
 
-<div class="buttons">
-  <button onclick="changeExpression('neutral')">محايد</button>
-  <button onclick="changeExpression('surprised')">اندهاش</button>
-  <button onclick="changeExpression('thinking')">تفكير</button>
-  <button onclick="changeExpression('shy')">خجل</button>
-  <button onclick="changeExpression('sad')">حزين</button>
-  <button onclick="changeExpression('side_smile')">ابتسامة جانبية</button>
-</div>
+<div class="buttons" id="buttons-container"></div>
 
 <script>
-  function changeExpression(state) {
-    const img = document.getElementById('assistant-img');
-    img.style.opacity = 0;
-    setTimeout(() => {
-      img.src = `assistant/textures/${state}.png`;
-      img.style.opacity = 1;
-    }, 300);
-  }
+  // قائمة التعبيرات المعروفة (يمكنك تعديلها)
+  const expressions = [
+    'neutral',
+    'surprised',
+    'thinking',
+    'shy',
+    'sad',
+    'side_smile'
+  ];
+
+  const container = document.getElementById('buttons-container');
+  const img = document.getElementById('assistant-img');
+
+  // بناء الأزرار تلقائياً
+  expressions.forEach(expr => {
+    const btn = document.createElement('button');
+    btn.innerText = expr;
+    btn.onclick = () => {
+      img.style.opacity = 0;
+      setTimeout(() => {
+        img.src = `assistant/textures/${expr}.png`;
+        img.style.opacity = 1;
+      }, 300);
+    };
+    container.appendChild(btn);
+  });
 </script>
 
 </body>
