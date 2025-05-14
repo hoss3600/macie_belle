@@ -4,19 +4,54 @@
   <meta charset="UTF-8">
   <title>Macie Belle Assistant</title>
   <style>
-    body { margin: 0; background: #fdfdfd; height: 100vh; overflow: hidden; }
+    body { margin: 0; background: #f9f9f9; height: 100vh; overflow: hidden; }
     .assistant {
       position: fixed;
       bottom: 0;
       right: 20px;
       width: 250px;
-      animation: float 3s ease-in-out infinite, fadeIn 1s forwards;
+      animation: float 3s ease-in-out infinite;
+      transition: opacity 0.3s ease;
     }
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .buttons {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+    }
+    .buttons button {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
-  <img src="assistant/textures/texture_00.png" alt="Assistant" class="assistant">
+
+<img id="assistant-img" src="assistant/textures/neutral.png" class="assistant" alt="Assistant">
+
+<div class="buttons">
+  <button onclick="changeExpression('neutral')">محايد</button>
+  <button onclick="changeExpression('surprised')">اندهاش</button>
+  <button onclick="changeExpression('thinking')">تفكير</button>
+  <button onclick="changeExpression('shy')">خجل</button>
+  <button onclick="changeExpression('sad')">حزين</button>
+  <button onclick="changeExpression('side_smile')">ابتسامة جانبية</button>
+</div>
+
+<script>
+  function changeExpression(state) {
+    const img = document.getElementById('assistant-img');
+    img.style.opacity = 0;
+    setTimeout(() => {
+      img.src = `assistant/textures/${state}.png`;
+      img.style.opacity = 1;
+    }, 300);
+  }
+</script>
+
 </body>
 </html>
